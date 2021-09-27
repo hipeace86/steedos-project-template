@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@steedos-labs/it@2.1.16":
+  version "2.1.16"
+  resolved "https://registry.npmmirror.com/@steedos-labs/it/download/@steedos-labs/it-2.1.16.tgz#6bded5e3bd682002b1059b4ed0ed08fb0aa3f546"
+  integrity sha1-a97V471oIAKxBZtO0O0I+wqj9UY=
+
 "@steedos-labs/oa@2.1.16":
   version "2.1.16"
   resolved "https://registry.npmmirror.com/@steedos-labs/oa/download/@steedos-labs/oa-2.1.16.tgz#d8f6677252ea76a6eb73f24a27fbd06c92233fb4"

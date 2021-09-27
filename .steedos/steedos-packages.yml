@@ -10,3 +10,9 @@ steedos-app-default:
   description: ''
   local: false
   path: .steedos/node_modules/@steedos-labs/oa
+'@steedos-labs/it':
+  enable: true
+  version: 2.1.16
+  description: ''
+  local: false
+  path: .steedos/node_modules/@steedos-labs/it

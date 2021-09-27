@@ -2,14 +2,39 @@ version: "3"
 
 services:
   steedos:
-    image: steedos/steedos-project-template:2.1.16
-    restart: always
-    # command: ['sh', '-c', "echo $(date +%T) start && /app/init_home.sh"]
+    build: .
+    image: steedos/steedos-project-template:dzgas
+    restart: unless-stopped
     ports:
-      - "5000:5000"
+      - "6100:5000"
     volumes:
-      - "./storage:/app/storage"
-      - "./.env.local:/app/.env.local"
+      - /storage:/storage
+      - ./steedos-config-secondary.yml:/app/steedos-config.yml
+      - ./.env.local:/app/.env.local
+    depends_on:
+      - redis
+      - mongo
+  
+  primary:
+    image: steedos/steedos-project-template:dzgas
+    restart: unless-stopped
+    volumes:
+      - /srv/workflow/cfs:/storage
+      - ./steedos-config-primary.yml:/app/steedos-config.yml
+      - ./.env.local:/app/.env.local
+    depends_on:
+      - redis
+      - mongo
+  
+  secondary:
+    image: steedos/steedos-project-template:dzgas
+    restart: unless-stopped
+    ports:
+      - "6200:5000"
+    volumes:
+      - /storage:/storage
+      - ./steedos-config-secondary.yml:/app/steedos-config.yml
+      - ./.env.local:/app/.env.local
     depends_on:
       - redis
       - mongo
