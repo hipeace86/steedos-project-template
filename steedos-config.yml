@@ -88,3 +88,6 @@ pay:
     appid: ${PAY_WEIXIN_APPID}
     mch_id: ${PAY_WEIXIN_MCH_ID}
     partner_key: ${PAY_WEIXIN_PARTNER_KEY}
+plugins:
+  - "@steedos/app-crm"
+  - "@steedos/app-contracts"
